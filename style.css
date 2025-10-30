@@ -1,0 +1,106 @@
+.background 
+{ top: 40vw;
+  left: 50vw;
+
+  --hdr-gradient: radial-gradient(
+    farthest-corner circle in oklab,
+    oklch(80% 0.14 222),
+    oklch(44% 0.19 268)
+  );
+  --sdr-gradient: radial-gradient(farthest-corner circle, #2bd1fe, #2841b9);
+
+  background: var(--hdr-gradient);;
+  --s: 80vw; 
+  width: var(--s); 
+  aspect-ratio: 1;
+  --g:/calc(var(--s)*0.156) calc(var(--s)*0.156) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
+  mask: calc(50% + var(--s)*0.382) calc(50% + var(--s)*0.13) var(--g),calc(50% + var(--s)*0.209) calc(50% + var(--s)*0.345) var(--g),calc(50% + var(--s)*-0.062) calc(50% + var(--s)*0.399) var(--g),calc(50% + var(--s)*-0.304) calc(50% + var(--s)*0.266) var(--g),calc(50% + var(--s)*-0.403) calc(50% + var(--s)*0.008) var(--g),calc(50% + var(--s)*-0.315) calc(50% + var(--s)*-0.253) var(--g),calc(50% + var(--s)*-0.078) calc(50% + var(--s)*-0.396) var(--g),calc(50% + var(--s)*0.194) calc(50% + var(--s)*-0.354) var(--g),calc(50% + var(--s)*0.376) calc(50% + var(--s)*-0.146) var(--g),radial-gradient(calc(var(--s)*0.421),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.352) calc(50% + var(--s)*0.283) var(--g),calc(50% + var(--s)*0.088) calc(50% + var(--s)*0.443) var(--g),calc(50% + var(--s)*-0.217) calc(50% + var(--s)*0.395) var(--g),calc(50% + var(--s)*-0.421) calc(50% + var(--s)*0.163) var(--g),calc(50% + var(--s)*-0.427) calc(50% + var(--s)*-0.145) var(--g),calc(50% + var(--s)*-0.234) calc(50% + var(--s)*-0.386) var(--g),calc(50% + var(--s)*0.069) calc(50% + var(--s)*-0.446) var(--g),calc(50% + var(--s)*0.339) calc(50% + var(--s)*-0.297) var(--g),calc(50% + var(--s)*0.451) calc(50% + var(--s)*-0.009) var(--g);
+}
+  
+
+.kopf {
+  position: absolute;
+  top: 13vw;
+  left: 22vw;
+  height: 55vw;
+  width: 37vw;
+  border-radius: 37%   38% 52% 52% / 37% 38% 52% 52%;;
+  background-color: #e3ae9a;
+}
+
+.auge {
+  height: 5vw;
+  width: 10vw;
+  border-radius: 100%;
+  background: white;
+}
+
+.pupille {
+  position: absolute;
+  top: 0vw;
+  left: 2.5vw;
+  height: 5vw;
+  width: 5vw;
+  border-radius: 100%;
+  
+
+  --hdr-gradient: radial-gradient(
+    farthest-corner circle in oklab,
+    oklch(0% 0.00 254),
+    41%,
+    oklch(55% 0.06 132),
+    oklch(39% 0.04 136)
+  );
+  --sdr-gradient: radial-gradient(farthest-corner circle, #000, 41%, #657955, #3b4a35);
+
+  background: var(--hdr-gradient);
+}
+
+
+
+.auge.links {
+  position: absolute;
+  left: 5vw;
+  top: 22vw;
+}
+
+.auge.rechts {
+  position: absolute;
+  right: 5vw;
+  top: 22vw;
+}
+
+.mund {
+  position: absolute;
+  bottom: 5vw;
+  left: 10vw;
+  height: 14vw;
+  width: 17vw;
+  background: radial-gradient(#d46c8b, #8a4a5d);
+  clip-path: polygon(23% 44%, 36% 37%, 45% 41%, 51% 47%, 57% 40%, 65% 36%, 75% 44%, 100% 45%, 73% 60%, 50% 65%, 28% 60%, 0 47%);;
+}
+
+ 
+
+
+
+.haare1  
+{
+  position: absolute;
+  left: -5.6vw;
+  width: 53vw;
+  height: 60vw;
+  top: -3vw;
+  background: #8c7243;
+clip-path: polygon(49% 4%, 40% 0, 21% 7%, 13% 15%, 10% 29%, 3% 43%, 22% 30%, 29% 22%, 40% 17%, 48% 12%, 57% 17%, 68% 20%, 72% 26%, 78% 36%, 92% 43%, 88% 30%, 83% 16%, 73% 5%, 57% 1%);}
+
+
+.haare2  
+{
+  position: absolute;
+  left: -9vw;
+  width: 53vw;
+  height: 60vw;
+  top: 29vw;
+  background: #8c7243;
+clip-path: polygon(18% 1%, 17% 37%, 14% 58%, 14% 69%, 6% 99%, 16% 81%, 15% 100%, 24% 79%, 30% 95%, 33% 75%, 33% 58%, 35% 43%, 28% 34%, 23% 20%);clip-path: polygon(19% 9%, 17% 37%, 14% 58%, 6% 72%, 2% 78%, 14% 73%, 14% 83%, 21% 72%, 24% 80%, 28% 68%, 30% 53%, 32% 44%, 25% 33%, 23% 20%);}
