@@ -1,106 +1,279 @@
-.background 
-{ top: 40vw;
-  left: 50vw;
-
-  --hdr-gradient: radial-gradient(
-    farthest-corner circle in oklab,
-    oklch(80% 0.14 222),
-    oklch(44% 0.19 268)
-  );
-  --sdr-gradient: radial-gradient(farthest-corner circle, #2bd1fe, #2841b9);
-
-  background: var(--hdr-gradient);;
-  --s: 80vw; 
-  width: var(--s); 
-  aspect-ratio: 1;
-  --g:/calc(var(--s)*0.156) calc(var(--s)*0.156) radial-gradient(50% 50%,#000 99%,#0000 101%) no-repeat;
-  mask: calc(50% + var(--s)*0.382) calc(50% + var(--s)*0.13) var(--g),calc(50% + var(--s)*0.209) calc(50% + var(--s)*0.345) var(--g),calc(50% + var(--s)*-0.062) calc(50% + var(--s)*0.399) var(--g),calc(50% + var(--s)*-0.304) calc(50% + var(--s)*0.266) var(--g),calc(50% + var(--s)*-0.403) calc(50% + var(--s)*0.008) var(--g),calc(50% + var(--s)*-0.315) calc(50% + var(--s)*-0.253) var(--g),calc(50% + var(--s)*-0.078) calc(50% + var(--s)*-0.396) var(--g),calc(50% + var(--s)*0.194) calc(50% + var(--s)*-0.354) var(--g),calc(50% + var(--s)*0.376) calc(50% + var(--s)*-0.146) var(--g),radial-gradient(calc(var(--s)*0.421),#000 99%,#0000 101%) subtract,calc(50% + var(--s)*0.352) calc(50% + var(--s)*0.283) var(--g),calc(50% + var(--s)*0.088) calc(50% + var(--s)*0.443) var(--g),calc(50% + var(--s)*-0.217) calc(50% + var(--s)*0.395) var(--g),calc(50% + var(--s)*-0.421) calc(50% + var(--s)*0.163) var(--g),calc(50% + var(--s)*-0.427) calc(50% + var(--s)*-0.145) var(--g),calc(50% + var(--s)*-0.234) calc(50% + var(--s)*-0.386) var(--g),calc(50% + var(--s)*0.069) calc(50% + var(--s)*-0.446) var(--g),calc(50% + var(--s)*0.339) calc(50% + var(--s)*-0.297) var(--g),calc(50% + var(--s)*0.451) calc(50% + var(--s)*-0.009) var(--g);
-}
-  
-
-.kopf {
-  position: absolute;
-  top: 13vw;
-  left: 22vw;
-  height: 55vw;
-  width: 37vw;
-  border-radius: 37%   38% 52% 52% / 37% 38% 52% 52%;;
-  background-color: #e3ae9a;
+:root {
+  color-scheme: light;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
-.auge {
-  height: 5vw;
-  width: 10vw;
-  border-radius: 100%;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, #ffe8f3 0%, #f6f9ff 45%, #d4e3ff 100%);
+  color: #2d2d2d;
+}
+
+.polaroid-scene {
+  position: relative;
+  width: min(90vw, 420px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flash-overlay {
+  position: fixed;
+  inset: 0;
   background: white;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.pupille {
-  position: absolute;
-  top: 0vw;
-  left: 2.5vw;
-  height: 5vw;
-  width: 5vw;
-  border-radius: 100%;
-  
-
-  --hdr-gradient: radial-gradient(
-    farthest-corner circle in oklab,
-    oklch(0% 0.00 254),
-    41%,
-    oklch(55% 0.06 132),
-    oklch(39% 0.04 136)
-  );
-  --sdr-gradient: radial-gradient(farthest-corner circle, #000, 41%, #657955, #3b4a35);
-
-  background: var(--hdr-gradient);
+.flash-overlay.flash {
+  animation: camera-flash 0.5s ease-out;
 }
 
-
-
-.auge.links {
-  position: absolute;
-  left: 5vw;
-  top: 22vw;
+@keyframes camera-flash {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.auge.rechts {
-  position: absolute;
-  right: 5vw;
-  top: 22vw;
+.camera {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 0.9;
+  background: linear-gradient(180deg, #4b4d52 0%, #2d2f35 100%);
+  border-radius: 24px 24px 36px 36px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 16px;
 }
 
-.mund {
-  position: absolute;
-  bottom: 5vw;
-  left: 10vw;
-  height: 14vw;
-  width: 17vw;
-  background: radial-gradient(#d46c8b, #8a4a5d);
-  clip-path: polygon(23% 44%, 36% 37%, 45% 41%, 51% 47%, 57% 40%, 65% 36%, 75% 44%, 100% 45%, 73% 60%, 50% 65%, 28% 60%, 0 47%);;
+.camera-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
- 
+.camera-flash {
+  width: 72px;
+  height: 48px;
+  border-radius: 16px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #f3f6ff 40%, #d5dbea 70%, #9297a7 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+}
 
+.camera-sensor {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #4ce0ff, #2541b2 75%, #141824 100%);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5);
+}
 
+.shutter-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: radial-gradient(circle at 30% 30%, #ff8578, #e6403d 70%, #a6100c 100%);
+  box-shadow: 0 6px 0 #7d1714;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
 
-.haare1  
-{
+.shutter-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #7d1714;
+}
+
+.camera-body {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.lens {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #1f2530, #0c0f15 70%, #000 100%);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.8);
+  display: grid;
+  place-items: center;
+}
+
+.lens-inner {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 60%, #6ae8ff, #172b5f 60%, #0c1329 100%);
+  box-shadow: 0 0 12px rgba(106, 232, 255, 0.7);
+}
+
+.viewfinder {
+  width: 56px;
+  height: 42px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 30%, #f2f5ff, #c9d3f0);
+  border: 3px solid rgba(0, 0, 0, 0.4);
+}
+
+.brand {
   position: absolute;
-  left: -5.6vw;
-  width: 53vw;
-  height: 60vw;
-  top: -3vw;
-  background: #8c7243;
-clip-path: polygon(49% 4%, 40% 0, 21% 7%, 13% 15%, 10% 29%, 3% 43%, 22% 30%, 29% 22%, 40% 17%, 48% 12%, 57% 17%, 68% 20%, 72% 26%, 78% 36%, 92% 43%, 88% 30%, 83% 16%, 73% 5%, 57% 1%);}
+  bottom: 10px;
+  right: 24px;
+  font-size: 0.85rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
 
+.camera-base {
+  height: 60px;
+  background: linear-gradient(180deg, #1e2026 0%, #0c0d12 100%);
+  border-radius: 18px;
+  padding: 16px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
 
-.haare2  
-{
+.slot {
+  width: 70%;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #14161d 0%, #05070b 100%);
+  box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.photo {
   position: absolute;
-  left: -9vw;
-  width: 53vw;
-  height: 60vw;
-  top: 29vw;
-  background: #8c7243;
-clip-path: polygon(18% 1%, 17% 37%, 14% 58%, 14% 69%, 6% 99%, 16% 81%, 15% 100%, 24% 79%, 30% 95%, 33% 75%, 33% 58%, 35% 43%, 28% 34%, 23% 20%);clip-path: polygon(19% 9%, 17% 37%, 14% 58%, 6% 72%, 2% 78%, 14% 73%, 14% 83%, 21% 72%, 24% 80%, 28% 68%, 30% 53%, 32% 44%, 25% 33%, 23% 20%);}
+  bottom: calc(12% * -1);
+  left: 50%;
+  width: min(68vw, 260px);
+  aspect-ratio: 3 / 4;
+  transform: translate(-50%, 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 12px 12px 16px 16px;
+  box-shadow: 0 18px 25px rgba(0, 0, 0, 0.25);
+  padding: 18px 18px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  filter: brightness(0) saturate(0);
+  transition: filter 1.6s ease;
+}
+
+.photo-image {
+  flex: 1;
+  width: 100%;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #d8d8d8, #c2c2c2);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.photo-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.photo--printing {
+  opacity: 1;
+  animation: print-photo 3s ease-in-out forwards;
+}
+
+.photo--visible .photo-image {
+  opacity: 0.2;
+}
+
+.photo--developed .photo-inner {
+  filter: none;
+}
+
+.photo--developed .photo-image {
+  opacity: 1;
+}
+
+@keyframes print-photo {
+  0% {
+    transform: translate(-50%, 60%);
+  }
+  40% {
+    transform: translate(-50%, 20%);
+  }
+  100% {
+    transform: translate(-50%, -10%);
+  }
+}
+
+.photo-image svg {
+  width: 100%;
+  height: 100%;
+}
+
+.photo-image svg text {
+  font-family: inherit;
+}
+
+@media (max-width: 480px) {
+  .camera {
+    padding: 18px;
+  }
+
+  .lens {
+    width: 120px;
+    height: 120px;
+  }
+
+  .shutter-button {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
