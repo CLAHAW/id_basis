@@ -1,35 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Portrait</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <div class="background"> </div>
-
-<div class="kopf">
-  
-  <div class="auge links">
-    <div class="pupille"></div>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Polaroid Kamera</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="polaroid-scene">
+    <div class="flash-overlay" aria-hidden="true"></div>
+    <div class="camera" role="figure" aria-label="Polaroidkamera">
+      <div class="camera-top">
+        <div class="camera-flash" aria-hidden="true"></div>
+        <div class="camera-sensor" aria-hidden="true"></div>
+        <button class="shutter-button" type="button" aria-label="Auslöser"></button>
+      </div>
+      <div class="camera-body">
+        <div class="lens" aria-hidden="true">
+          <div class="lens-inner"></div>
+        </div>
+        <div class="viewfinder" aria-hidden="true"></div>
+        <span class="brand" aria-hidden="true">Polaroid</span>
+      </div>
+      <div class="camera-base">
+        <div class="slot" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="photo" aria-live="polite">
+      <div class="photo-inner">
+        <div class="photo-image" role="img" aria-label=""></div>
+        <div class="photo-label" aria-hidden="true"></div>
+      </div>
+    </div>
   </div>
-  
-  <div class="auge rechts">
-    <div class="pupille"></div>
-  </div>
-  
-  <div class="mund"></div>
-   <div class="nase"></div>
-     
-  
-  <div class="haare1"></div>
-  <div class="haare2"></div>
-  <div class="haare3"></div>
-</div>
-    
-  </body>
-  
+  <script src="script.js"></script>
+</body>
 </html>
