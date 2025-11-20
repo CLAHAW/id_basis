@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Titel der Seite -->
+        <title>Seitentitel</title>
+        
+        <!-- verweis auf die reset.css - entfernt alle default styles des browsers -->
+        <!-- kann auch gelöscht werden -->
+        <link rel="stylesheet" href="./assets/css/reset.css">
+
+        <!-- verweis auf unser css -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    
+    <body>
+        <!-- innerhalb des body tags kann der inhalt / das html der seite eingefügt werden -->
+
+
+<div class="stage" id="stage">
+  <button id="surpriseBtn" aria-label="Surprise me">Surprise me</button>
+
+<div id="bird" class="bird" role="img" aria-hidden="true">
+  <svg viewBox="0 0 200 120" width="140" height="84" xmlns="http://www.w3.org/2000/svg">
+    <!-- Körper -->
+    <ellipse cx="100" cy="60" rx="45" ry="28" fill="var(--bird-color)" />
+    <!-- Kopf -->
+    <circle cx="145" cy="48" r="20" fill="var(--bird-color)" />
+    <!-- Schnabel -->
+    <polygon points="162,48 182,54 162,60" fill="#f5a623" />
+    <!-- Auge -->
+    <circle cx="150" cy="44" r="3" fill="#222" />
+    <!-- Flügel -->
+    <path id="wing" d="M60 55 Q40 30 80 35 Q100 40 85 60 Q70 75 60 55Z"
+          fill="#f7e45b" stroke="rgba(0,0,0,0.1)" stroke-width="0.5" />
+    <!-- Schwanz -->
+    <polygon points="55,60 30,50 30,70" fill="#f7e45b" />
+  </svg>
+</div>
+
+</div>
+
+
+
+
+        
+
+
+
+
+        <!-- verweis auf unser javascript -->
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>

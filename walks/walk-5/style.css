@@ -1,0 +1,49 @@
+body {
+
+  background: #fff07f;
+  color: #5a3e1b;
+  font-family: "Comic Neue", "Helvetica Neue", sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 14vw;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+
+}
+
+.task {
+  font-size: 5vw;
+  line-height: 1.5;
+  margin-top: 20px;
+  color: #4b3f2a;
+
+}
+
+.dog {
+  font-size: 40vw;
+  margin: 100px;
+  animation: tailWag 1.5s ease-in-out infinite;
+}
+
+.next {
+  background: #805b28;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-family: sans-serif;
+  padding: 8px 16px;
+  border-radius: 10px;
+
+}
+
+.next a {
+  color: white;
+  text-decoration: none;
+}
+
+@keyframes tailWag {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  75% { transform: rotate(-15deg); }

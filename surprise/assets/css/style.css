@@ -1,0 +1,125 @@
+:root{
+  --bg: #ffffff;
+  --btn-bg: #ffd951; /* gelb */
+  --btn-color: #222;
+  --bird-color: #ffd951;
+  --radius: 110px;   /* Kreisradius für die Kreisbewegung */
+}
+
+/* Vollbild Stage, zentriert */
+html,body{height:100%;margin:0}
+.stage{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--bg);
+  position:relative;
+  overflow:hidden; /* damit das Ausfliegen sauber aussieht */
+}
+
+/* ungestalteter (minimal gestylter) Button, zentriert */
+#surpriseBtn{
+  appearance:none;
+  -webkit-appearance:none;
+  border:1px solid rgba(0,0,0,0.06);
+  background:var(--btn-bg);
+  color:var(--btn-color);
+  padding:0.8rem 1.1rem;
+  font-size:1rem;
+  border-radius:6px;
+  cursor:pointer;
+  box-shadow:0 2px 0 rgba(0,0,0,0.06);
+  transition:transform .15s ease, box-shadow .15s ease;
+  will-change:transform;
+  position:relative;
+  z-index:2;
+}
+
+/* Knopf-Interaktion (kleine Feedbacks) */
+#surpriseBtn:active{ transform: translateY(1px) scale(.995); box-shadow:0 1px 0 rgba(0,0,0,0.04); }
+
+/* Vogel-Container (absolut, startet im Zentrum) */
+.bird{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:3;
+  display:none; /* wird per JS sichtbar gemacht */
+  color:var(--bird-color); /* füllt das SVG (currentColor) */
+  width:120px;
+  height:72px;
+}
+
+/* Wenn die Animation gestartet wird, machen wir das Element sichtbar */
+.bird.animate{
+  display:block;
+  /* Sequenz: erst Kreisflug (2s), dann Abflug nach rechts oben (1.2s).
+     Beide Animationsdefinitionen laufen nacheinander (delays eingestellt in animation shorthand). */
+  animation:
+    birdCircle 2s linear forwards,
+    birdFlyAway 1.2s ease-in forwards;
+  /* birdFlyAway soll erst starten, nachdem birdCircle beendet ist => delay */
+  animation-delay: 0s, 2s;
+  /* Damit das Transform-Verhalten der zweite Animation nicht sofort das erste überschreibt,
+     nutzen wir forwards + getrennte animations. */
+}
+
+/* KEYFRAMES: Kreisflug (approximiert mit 4 Punkten) */
+@keyframes birdCircle{
+  0%{
+    transform: translate(-50%,-50%) translateY(calc(-1 * var(--radius))) rotate(-15deg);
+  }
+  25%{
+    transform: translate(-50%,-50%) translateX(var(--radius)) rotate(0deg);
+  }
+  50%{
+    transform: translate(-50%,-50%) translateY(var(--radius)) rotate(15deg);
+  }
+  75%{
+    transform: translate(-50%,-50%) translateX(calc(-1 * var(--radius))) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%,-50%) translateY(calc(-1 * var(--radius))) rotate(-15deg);
+  }
+}
+
+/* KEYFRAMES: Abflug nach rechts oben - bewegt vogel aus dem viewport heraus */
+@keyframes birdFlyAway{
+  0%{
+    /* Start dort, wo birdCircle endet (oben) */
+    transform: translate(-50%,-50%) translateY(calc(-1 * var(--radius))) rotate(-15deg);
+    opacity:1;
+  }
+  60%{
+    /* Richtung nach rechts-oben beschleunigen */
+    transform: translate(-50%,-50%) translate(calc(45vw), calc(-35vh)) rotate(-30deg);
+    opacity:1;
+  }
+  100%{
+    /* endgültig aus dem sichtbaren Bereich */
+    transform: translate(-50%,-50%) translate(calc(110vw), calc(-120vh)) rotate(-60deg);
+    opacity:0;
+  }
+}
+
+/* Flügelbewegung (leichtes Schlagen beim Kreisflug) */
+.bird.animate #wing {
+  animation: flap 0.3s ease-in-out infinite alternate;
+  transform-origin: 70px 50px;
+}
+
+@keyframes flap {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(12deg); }
+}
+
+
+/* Kleine Responsivität: Radius etwas kleiner auf schmalen Bildschirmen */
+@media (max-width:480px){
+  :root{ --radius: 70px; }
+  .bird{ width:90px; height:54px; }
+  #surpriseBtn{ padding:0.6rem 0.9rem; font-size:.95rem; }
+}

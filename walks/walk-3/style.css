@@ -1,0 +1,53 @@
+body {
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 16vw;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  animation: echoPulse 2s infinite;
+}
+
+.aufgabe {
+  font-size: 5vw;
+  line-height: 1.4;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.sound {
+  font-size: 40vw;
+  margin: 100px 0;
+  animation: echoBounce 3s infinite;
+}
+
+.next {
+  text-align: center;
+  background: #333;
+  font-size: 20px;
+  letter-spacing: 3px;
+  padding: 8px 16px;
+  border-radius: 9px;
+  display: inline-block;
+}
+
+.next a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+@keyframes echoPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes echoBounce {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.2); opacity: 1; }
+}

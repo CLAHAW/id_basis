@@ -1,0 +1,39 @@
+h1 {
+  text-align: center;
+  font-size: 10vw;
+  letter-spacing: 4px;
+  line-height: 2;
+}
+
+body { 
+  background-color: #7c9e75;
+  color: white;
+  font-family: "arial" ;
+  font-size: 5vw;
+  text-align: center;
+  padding-left: 30px; 
+  padding-right: 30px; 
+  line-height: 2;
+  margin-bottom: 8;
+}
+.foto 
+{ 
+  font-size: 10vw;
+}
+
+a {
+  color: white; 
+  text-decoration: none;
+}
+
+.next {
+  text-align: center; 
+  background: #4e6e47;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  margin-top: 300 px;
+  padding: 6px 12px; 
+  border-radius: 9px; 
+  
+}
